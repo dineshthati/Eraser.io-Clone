@@ -1,11 +1,21 @@
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+"use client";
+
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+import { Header } from "./_components/Header";
+import { Hero } from "./_components/Hero";
+import { useEffect } from "react";
 
 export default function Home() {
+  const { user } = useKindeBrowserClient();
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
+
   return (
     <div>
-      <h1>Hello</h1>
-      <Button>CLick</Button>
+      <Header />
+      <Hero />
     </div>
   );
 }
